@@ -2,20 +2,32 @@
   "manifest": {
     "publishingInformation": {
       "locales": {
-        "en-US": {
-          "summary": "Sample Short Description",
+        "en-CA": {
+          "summary": "Health Canada's Alexa voice skill proof of concept",
           "examplePhrases": [
-            "Alexa open hello world",
-            "Alexa tell hello world hello",
-            "Alexa ask hello world say hello"
+            "Alexa open recalls and safety alerts",
+            "Alexa ask recalls and safety alerts if there are eggs in my dumplings",
+            "Alexa tell recalls and safety alerts to notify me about peanut allergin alerts",
+            "Alexa ask recalls and safety alerts if I can still use my expired EpiPen"
           ],
           "name": "alexapoc-hcsc-recalls",
-          "description": "Sample Full Description"
+          "description": "Health Canada's Alexa voice skill proof of concept."
+        },
+        "en-US": {
+          "summary": "Health Canada's Alexa voice skill proof of concept.",
+          "examplePhrases": [
+            "Alexa open recalls and safety alerts",
+            "Alexa ask recalls and safety alerts if there are eggs in my dumplings",
+            "Alexa tell recalls and safety alerts to notify me about peanut allergin alerts",
+            "Alexa ask recalls and safety alerts if I can still use my expired EpiPen"
+          ],
+          "name": "alexapoc-hcsc-recalls",
+          "description": "Health Canada's Alexa voice skill proof of concept"
         }
       },
       "isAvailableWorldwide": true,
       "testingInstructions": "Sample Testing Instructions.",
-      "category": "EDUCATION_AND_REFERENCE",
+      "category": "HEALTH_AND_FITNESS",
       "distributionCountries": []
     },
     "apis": {
