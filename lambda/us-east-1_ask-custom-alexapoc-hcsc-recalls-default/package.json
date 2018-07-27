@@ -1,0 +1,20 @@
+{
+  "name": "alexapoc-hcsc-recalls",
+  "version": "1.0.0",
+  "description": "Health Canada's Alexa voice skill proof of concept",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ask-sdk-core": "^2.0.0",
+    "ask-sdk-model": "^1.0.0",
+    "node-fetch": "^2.2.0",
+    "ramda": "^0.25.0"
+  }
+}

@@ -1,38 +1,363 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "greeter",
-      "types": [
-
-      ],
+      "invocationName": "health canada recalls",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
-          "samples": [
-
-          ]
+          "samples": []
         },
         {
           "name": "AMAZON.HelpIntent",
-          "samples": [
-
-          ]
+          "samples": []
         },
         {
           "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "RecentRecallsIntent",
+          "slots": [
+            {
+              "name": "category",
+              "type": "RECALL_CATEGORIES"
+            },
+            {
+              "name": "query",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
           "samples": [
-
+            "new recalls",
+            "{category} recalls",
+            "new {category} recalls",
+            "recent",
+            "recent recalls",
+            "recent {category} recalls",
+            "latest",
+            "latest recalls",
+            "latest {category} recalls",
+            "what are the latest recalls",
+            "what are the latest {category} recalls",
+            "what are the most recent recalls",
+            "what are the most recent {category} recalls",
+            "are there any new recalls",
+            "are there any new {category} recalls",
+            "tell me about new recalls",
+            "tell me about new {category} recalls",
+            "look for new recalls",
+            "look for new {category} recalls",
+            "search for new recalls",
+            "search for new {category} recalls",
+            "search for new {query} recalls",
+            "search for {query}",
+            "recent {query} recalls",
+            "latest {query} recalls",
+            "search for {query} recalls under {category}",
+            "search for {category} recalls under {query}",
+            "latest {query} recalls for {category}",
+            "new {query} recalls for {category}",
+            "new {query} recalls",
+            "have there been any {query} recalls"
           ]
         },
         {
-          "name": "HelloWorldIntent",
+          "name": "RecentRecallDetailIntent",
           "slots": [
-
+            {
+              "name": "index",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "colloquialism",
+              "type": "INDEX_COLLOQUIALISMS"
+            }
           ],
           "samples": [
-            "hello",
-            "say hello",
-            "say hello world"
+            "{index}",
+            "number {index}",
+            "show me {index}",
+            "what are the details for {index}",
+            "what are the details for number {index}",
+            "tell me more about {index}",
+            "tell me more about number {index}",
+            "{colloquialism}",
+            "number {colloquialism}",
+            "show me {colloquialism}",
+            "show me the {colloquialism}",
+            "show me the {colloquialism} one",
+            "what are the details for {colloquialism}",
+            "what are the details for number {colloquialism}",
+            "tell me more about {colloquialism}",
+            "tell me more about number {colloquialism}"
+          ]
+        },
+        {
+          "name": "CurrentRecallPanelIntent",
+          "slots": [
+            {
+              "name": "panel",
+              "type": "PANEL_TYPES"
+            }
+          ],
+          "samples": [
+            "{panel}",
+            "the {panel}",
+            "a {panel}",
+            "tell me {panel}",
+            "tell me about {panel}",
+            "tell me about a {panel}",
+            "tell me about the {panel}",
+            "how about the {panel}",
+            "how about a {panel}",
+            "I would like to know about {panel}"
+          ]
+        },
+        {
+          "name": "CurrentRecallSummaryIntent",
+          "slots": [
+            {
+              "name": "topic",
+              "type": "SUMMARY_OPTIONS"
+            }
+          ],
+          "samples": [
+            "Summary options",
+            "What are the summary options",
+            "Tell me the summary options",
+            "I would like to know the summary options",
+            "I want to know the summary options",
+            "I want to know about {topic}",
+            "I want to know about the {topic}",
+            "{topic}",
+            "what {topic}",
+            "tell me about the {topic}",
+            "tell me about {topic}",
+            "what is the {topic}",
+            "where is the {topic}",
+            "who is the {topic}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "SUMMARY_OPTIONS",
+          "values": [
+            {
+              "name": {
+                "value": "category"
+              }
+            },
+            {
+              "name": {
+                "value": "alert type",
+                "synonyms": [
+                  "Alert"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "department"
+              }
+            },
+            {
+              "name": {
+                "value": "hazard classification",
+                "synonyms": [
+                  "classification",
+                  "hazard"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "alert sub-type"
+              }
+            },
+            {
+              "name": {
+                "value": "recalling firm",
+                "synonyms": [
+                  "firm"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "distribution",
+                "synonyms": [
+                  "location",
+                  "located"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Extent of the product distribution",
+                "synonyms": [
+                  "extent",
+                  "full extent"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "INDEX_COLLOQUIALISMS",
+          "values": [
+            {
+              "name": {
+                "value": "first"
+              }
+            },
+            {
+              "name": {
+                "value": "second"
+              }
+            },
+            {
+              "name": {
+                "value": "third"
+              }
+            },
+            {
+              "name": {
+                "value": "fourth"
+              }
+            },
+            {
+              "name": {
+                "value": "fifth"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RECALL_CATEGORIES",
+          "values": [
+            {
+              "name": {
+                "value": "ALL",
+                "synonyms": [
+                  "everything"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "FOOD"
+              }
+            },
+            {
+              "name": {
+                "value": "VEHICLE",
+                "synonyms": [
+                  "automobile",
+                  "auto"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "HEALTH"
+              }
+            },
+            {
+              "name": {
+                "value": "CPS",
+                "synonyms": [
+                  "products",
+                  "consumer",
+                  "consumer products"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PANEL_TYPES",
+          "values": [
+            {
+              "name": {
+                "value": "list of affected products",
+                "synonyms": [
+                  "a list of affected products",
+                  "products",
+                  "affected products",
+                  "list of products",
+                  "product list"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Summary"
+              }
+            },
+            {
+              "name": {
+                "value": "Issue",
+                "synonyms": [
+                  "the issue",
+                  "problem",
+                  "what is wrong"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Who is affected"
+              }
+            },
+            {
+              "name": {
+                "value": "Report health or safety concerns"
+              }
+            },
+            {
+              "name": {
+                "value": "What you should do",
+                "synonyms": [
+                  "what should I do",
+                  "what should you do",
+                  "what to do"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Background"
+              }
+            },
+            {
+              "name": {
+                "value": "For more information",
+                "synonyms": [
+                  "more information",
+                  "information",
+                  "info",
+                  "more info"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Media enquiries",
+                "synonyms": [
+                  "media",
+                  "enquiries"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Identification number",
+                "synonyms": [
+                  "id"
+                ]
+              }
+            }
           ]
         }
       ]

@@ -11,4 +11,13 @@ This is Health Canada's Alexa voice skill proof of concept. It is a sample appli
 - "Alexa open recalls and safety alerts"
 - "Alexa ask recalls and safety alerts if there are eggs in my dumplings"
 - "Alexa tell recalls and safety alerts to notify me about peanut allergin alerts"
-- "Alexa ask recalls and safety alerts if I can still use my expired EpiPen"
+
+## NPM Commands
+
+| Command | Description |
+|-----------|-------------|
+| `copy-model` | Copies en-CA model to en-US. |
+| `ask-deploy` | Deploys skill to AWS cloud. |
+| `download-lambda` | Pulls lambda from AWS cloud into custom folder. |
+| `deploy` | Builds and deploys. Use this for regular deployment. |
+| `force-deploy` | Builds and forces a deployment. **Use with caution!** |

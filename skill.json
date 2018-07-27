@@ -5,38 +5,49 @@
         "en-CA": {
           "summary": "Health Canada's Alexa voice skill proof of concept",
           "examplePhrases": [
-            "Alexa open recalls and safety alerts",
-            "Alexa ask recalls and safety alerts if there are eggs in my dumplings",
-            "Alexa tell recalls and safety alerts to notify me about peanut allergin alerts",
-            "Alexa ask recalls and safety alerts if I can still use my expired EpiPen"
+            "Alexa open Health Canada Recalls",
+            "Alexa ask Health Canada Recalls for food recalls",
+            "Alexa ask Health Canada Recalls if there are eggs in my dumplings"
           ],
+          "keywords": [],
           "name": "alexapoc-hcsc-recalls",
-          "description": "Health Canada's Alexa voice skill proof of concept."
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2f7c/474df68a747d42c49f1685d2bad4874a/APP_ICON?versionId=SaMq14yXXIvpLHQhgInsMntEK9RmnDz6&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1532786872&Signature=HzyjKNKeYdwXE1zy6aJM8S%2BfNns%3D",
+          "description": "Health Canada's Alexa voice skill proof of concept.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/5144/f79469c5fab043fa98543ae0bb36c0b1/APP_ICON_LARGE?versionId=vIz8KdsAItVoY5u06aVNF6Gh2h9GvfHV&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1532786872&Signature=5B69hPuL1DtP3tqo%2FXATPL2LuXE%3D"
         },
         "en-US": {
           "summary": "Health Canada's Alexa voice skill proof of concept.",
           "examplePhrases": [
-            "Alexa open recalls and safety alerts",
-            "Alexa ask recalls and safety alerts if there are eggs in my dumplings",
-            "Alexa tell recalls and safety alerts to notify me about peanut allergin alerts",
-            "Alexa ask recalls and safety alerts if I can still use my expired EpiPen"
+            "Alexa open Health Canada Recalls",
+            "Alexa ask Health Canada Recalls for food recalls",
+            "Alexa ask Health Canada Recalls if there are eggs in my dumplings"
           ],
+          "keywords": [],
           "name": "alexapoc-hcsc-recalls",
-          "description": "Health Canada's Alexa voice skill proof of concept"
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d32b/048138161c3d432797c222bd9a1460d4/APP_ICON?versionId=Og9B0u3XA4mvpBASRk4rjFn5d9c6y033&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1532786872&Signature=nAH677UyCgYsO5%2FQcezOxpaZDqE%3D",
+          "description": "Health Canada's Alexa voice skill proof of concept",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/9908/0725390ab3a04d5188f668dab47b5252/APP_ICON_LARGE?versionId=8PqAt0sy02jtfDZkSrhFvpX_gnqjfkah&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1532786872&Signature=Kztc1BPzpN5fb0oUBbmhRSqmRaY%3D"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
+      "testingInstructions": "-placeholder-",
       "category": "HEALTH_AND_FITNESS",
       "distributionCountries": []
     },
     "apis": {
       "custom": {
         "endpoint": {
-          "sourceDir": "lambda/custom"
+          "sourceDir": "./lambda/us-east-1_ask-custom-alexapoc-hcsc-recalls-default"
         }
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
   }
 }

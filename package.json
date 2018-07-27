@@ -1,0 +1,19 @@
+{
+  "name": "alexapoc-hcsc-recalls",
+  "version": "0.0.1",
+  "description": "Health Canada's Alexa voice skill proof of concept",
+  "main": "skill.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-model": "cp models/en-CA.json models/en-US.json",
+    "ask-deploy": "ask deploy",
+    "download-lambda": "ask lambda download --function ask-custom-alexapoc-hcsc-recalls-default --dest ./lambda/custom/",
+    "deploy": "run-s copy-model ask-deploy",
+    "force-deploy": "run-s copy-model 'ask-deploy -- --force'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "^4.1.3"
+  }
+}
