@@ -8,9 +8,9 @@ This is Health Canada's Alexa voice skill proof of concept. It is a sample appli
 
 ### Example Phrases
 
-- "Alexa open recalls and safety alerts"
-- "Alexa ask recalls and safety alerts if there are eggs in my dumplings"
-- "Alexa tell recalls and safety alerts to notify me about peanut allergin alerts"
+- "Alexa open Health Canada Recalls"
+- "Alexa ask Health Canada Recalls for food recalls"
+- "Alexa ask Health Canada Recalls for peanut recalls"
 
 ## NPM Commands
 

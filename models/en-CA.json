@@ -51,12 +51,9 @@
             "search for new {category} recalls",
             "search for new {query} recalls",
             "search for {query}",
+            "search for {query} recalls",
             "recent {query} recalls",
             "latest {query} recalls",
-            "search for {query} recalls under {category}",
-            "search for {category} recalls under {query}",
-            "latest {query} recalls for {category}",
-            "new {query} recalls for {category}",
             "new {query} recalls",
             "have there been any {query} recalls"
           ]
@@ -108,6 +105,7 @@
             "tell me about {panel}",
             "tell me about a {panel}",
             "tell me about the {panel}",
+            "show me {panel}",
             "how about the {panel}",
             "how about a {panel}",
             "I would like to know about {panel}"

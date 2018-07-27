@@ -20,7 +20,7 @@ const
  * @function getSlotValue
  * @description Retrieves cannonical value from intent request slots
  * @param {Object} slot Intent slot to get the value from
- * @returns {String} Cannonical value
+ * @returns {String} Slot value
  */
 function getSlotValue(slot) {
   if (!slot) return null;
@@ -112,24 +112,22 @@ const RecentRecallsIntentHandler = {
       if (typeof category === "string" && CATEGORIES.includes(category.toUpperCase())) {
         category = category.toUpperCase();
       }
-      else if (!CATEGORIES.includes(category) && typeof category === "string" && category.length) {
+      else if ((typeof query === "string" && query) || !category || !CATEGORIES.includes(category) && typeof category === "string" && category.length) {
         // TODO: Use search endpoint instead of recent to search for "any". This may require using an additional 'generic' slot type.
         // "Tell me about {query} recalls"
         // "I'll search for {category} recalls"
         // useSearchEndpoint = true;
         category = "ALL";
       }
-      else if (!category) {
-        category = "ALL";
-      }
 
       let 
+        recent = null,
         recentText = "",
         i = 0;
 
       if (CATEGORIES.includes(category) && !query) {
         // Get recent recalls from API
-        const recent = (await (await fetch(recentUrl)).json()).results[category].slice(0, RESULTS_LIMIT);
+        recent = (await (await fetch(recentUrl)).json()).results[category].slice(0, RESULTS_LIMIT);
   
         // Save recent recalls and category in session
         handlerInput.attributesManager.setSessionAttributes({
@@ -146,27 +144,43 @@ const RecentRecallsIntentHandler = {
       else {
         // TODO:  Use search query to get search results and append to recentText
         let _url = searchUrl
-          .replace(/{query}/, category)
+          .replace(/{query}/, typeof query === "string" ? query : category)
           .replace(/{category}/, `&cat=${CATEGORIES.includes(category) ? CATEGORIES.indexOf(category) : 0}`)
 
-        const recent = (await (await fetch(_url)).json()).results;
+        recent = (await (await fetch(_url)).json()).results;
 
         // Save recent recalls and category in session
         handlerInput.attributesManager.setSessionAttributes({
           recent,
           category
         });
-        
-        // Generate speech segment.
+      }
+
+      let 
+        fetchedText = null,
+        speechText = null;
+
+      if (!recent.length) {
+        // No results were found
+        speechText = `I'm sorry, I couldn't find any recalls${query ? ` related to, '${query}'` : ""}. Please try again. You may also find what you're looking for on the Recalls and Safety alerts page on canada.ca or in the mobile app on iOS or Android.`;
+      }
+      else {
+        // Generate results speech segment.
         for (i = 0; i < RESULTS_LIMIT; i++) {
           recentText = `${recentText} ${i + 1}: ${recent[i].title}. `;
         }
+
+        // Generate text to give contextual feedback in regards to the query that was performed.
+        fetchedText = query && typeof query === "string"
+          ? ` related to, '${query}'`
+          : category === "ALL" 
+            ? "" 
+            : ` for ${category.toString()}`;
+
+        // Generate speech text
+        speechText = `Here are the latest recalls and safety alerts${fetchedText}. ${recentText}. You may ask me to tell you more about items 1 through ${RESULTS_LIMIT}.`;
       }
       
-      // TODO: map category names for speech friendly versions
-      const speechText = `Here are the latest recalls and safety alerts${category === "ALL" ? "" : ` for ${category.toString()}`}. ${recentText}. You may ask me for more details on items 1 through ${RESULTS_LIMIT}.`;
-
-      // TODO: "What products were included in this recall". Isolate list of product panels and create intent to handle listing them.
       return handlerInput.responseBuilder
         .speak(speechText)
         .reprompt(speechText)
@@ -207,9 +221,6 @@ const RecentRecallDetailIntentHandler = {
           : null;
       }
       else index = getSlotValue(index);
-
-      console.log(`DEBUG index:\n${util.inspect(index, { depth: null })}`);
-      console.log(`DEBUG colloquialism:\n${util.inspect(colloquialism, { depth: null })}`);
 
       // Get session attributes
       const { recent } = attributes = await handlerInput.attributesManager.getSessionAttributes();
@@ -391,9 +402,6 @@ const CurrentRecallPanelIntentHandler = {
         }
       }
       else {
-        console.log(`DEBUG PANEL INPUT: ${util.inspect(panel, { depth: null })}`);
-        console.log(`DEBUG CURRENTPANEL: ${util.inspect(currentPanel, { depth: null })}`);
-
         // Add current panel to speech text
         speechText = currentPanel
           ? `${Array.isArray(currentPanel) ? currentPanel.text.join(" ") : currentPanel.text}`
@@ -467,9 +475,6 @@ const CurrentRecallSummaryIntentHandler = {
       }
       else {
         const summary = R.find(panel => /Summary/i.test(panel.title))(current.panels);
-
-        console.log(`DEBUG current: ${util.inspect(current, { depth: null })}`);
-        console.log(`DEBUG summary: ${util.inspect(summary, { depth: null })}`);
 
         speechText = summary
           ? R.find(_topic => (new RegExp(topic, "i").test(_topic.split(":")[0])))(summary.text)

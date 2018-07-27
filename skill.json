@@ -7,7 +7,7 @@
           "examplePhrases": [
             "Alexa open Health Canada Recalls",
             "Alexa ask Health Canada Recalls for food recalls",
-            "Alexa ask Health Canada Recalls if there are eggs in my dumplings"
+            "Alexa ask Health Canada Recalls for peanut recalls"
           ],
           "keywords": [],
           "name": "alexapoc-hcsc-recalls",
@@ -20,7 +20,7 @@
           "examplePhrases": [
             "Alexa open Health Canada Recalls",
             "Alexa ask Health Canada Recalls for food recalls",
-            "Alexa ask Health Canada Recalls if there are eggs in my dumplings"
+            "Alexa ask Health Canada Recalls for peanut recalls"
           ],
           "keywords": [],
           "name": "alexapoc-hcsc-recalls",
